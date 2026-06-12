@@ -56,6 +56,11 @@ target_link_libraries(example_torque_aliengo ${EXTRA_LIBS})
 
 pybind11_add_module(robot_interface python_wrapper/python_interface.cpp)
 target_compile_options(robot_interface PRIVATE -fPIC -no-pie)
+target_link_libraries(robot_interface PRIVATE ${EXTRA_LIBS})
 set_target_properties(robot_interface PROPERTIES
       LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib/python/${ARCH}
+      # Resolve libunitree_legged_sdk.so relative to this module at runtime:
+      # lib/python/${ARCH} -> lib/cpp/${ARCH}. $ORIGIN keeps it relocatable.
+      BUILD_WITH_INSTALL_RPATH TRUE
+      INSTALL_RPATH "$ORIGIN/../../cpp/${ARCH}"
 )
