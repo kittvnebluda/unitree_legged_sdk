@@ -6,13 +6,13 @@
 #define _UNITREE_LEGGED_SDK_H_
 
 #include "comm.h"
+#include "lcm.h"
+#include "loop.h"
+#include "quadruped.h"
 #include "safety.h"
 #include "udp.h"
-#include "loop.h"
-#include "lcm.h"
-#include "quadruped.h"
 #include <boost/bind.hpp>
 
-#define UT UNITREE_LEGGED_SDK    //short name
+#define UT UNITREE_LEGGED_SDK // short name
 
 #endif
