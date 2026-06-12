@@ -2,4 +2,9 @@ build
 
 *.o
 .vscode
+
 .clang-format
+.python-version
+
+compile_commands.json
+
